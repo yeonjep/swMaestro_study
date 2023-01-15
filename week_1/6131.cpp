@@ -28,23 +28,26 @@ using namespace std;
 int check(int b, int n){
 
 
-    int a_check = 1;
+    int a_2 = b*b*n;
 
-    a_check = b*b*n;
-
-    if((a_check%(int)sqrt(a_check)==0)&&sqrt(a_check)<=(500))
+    if((a_2%(int)sqrt(a_2)==0)&&sqrt(a_2)<=(500))
         return 1;
-    
+    if(sqrt(a_2)>=500)
+        return 2;
+
     return 0;
 }
 int how_many(int n){
 
     int cnt = 0;
 
-    int a=1, b=1, a_check = 1;
+    int b=1, a_check = check(b, n);
 
-    while(check(b, n)){
-        cnt++;
+    while(1){
+        if(a_check==2)
+            break;
+        else if(a_check==1)
+            cnt++;
         b++;
     }
 
