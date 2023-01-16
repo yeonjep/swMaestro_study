@@ -27,6 +27,7 @@ $1$번, $2$번, … $N - 1$번, $N$번 교과서 순으로 꺼내야 한다. '
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -35,12 +36,38 @@ int main(){
     
     int n, m; // 교과서 수 n, 더미 수 m
 
-    int k;
+    cin>>n>>m;
+
+    vector<int> book;
+    vector<int> temp;
+
+    int num = 0, in;
+    int result = 0;
+
     for(int i = 0; i<m; i++){
+        cin>>num;
+        book.resize(num, 0);
+        temp.resize(num, 0);
+        for(int j = 0; j < num; j++){
+            cin>>in;
+            //book.push_back(in);
+            book[j]=in;
+            temp[j]=in;
+            //temp.push_back(in);
+        }
+        sort(temp.begin(), temp.end(), greater<>());
+        //for(int k = 0; k < num; k++){
+          //  cout<<"book : "<<book[k]<<" temp : "<<temp[k]<<endl;
+        //}
+        result = equal(book.begin(), book.end(), temp.begin(),temp.end())?result:1;
+        //cout<<result<<endl;
 
     }
 
-
+    if(result == 1)
+        cout<<"No";
+    else
+        cout<<"Yes";
 
 
     return 0;
