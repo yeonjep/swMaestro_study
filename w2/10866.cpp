@@ -17,7 +17,7 @@ int main() {
   cin >> n;
   cin.ignore();
 
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n + 1; i++) {
     getline(cin, line);
     strcpy(cline, line.c_str());
 
@@ -34,19 +34,36 @@ int main() {
         dq.push_back(val);
       }
     } else if (!strcmp(tok, "pop")) {
-      if (!strcmp(tok, "front")) {
-        dq.pop_front();
-      } else {
-        dq.pop_back();
+      tok = strtok(NULL, del);
+        if (!strcmp(tok, "front")) {
+          if (!dq.empty()) {
+            cout << dq.front() << endl;
+            dq.pop_front();
+          }
+          else
+            cout << -1 << endl;
+        } else {
+        if (!dq.empty()) {
+          cout << dq.back() << endl;
+          dq.pop_back();
+        }
+        else 
+          cout << -1 << endl;
       }
     } else if (!strcmp(tok, "size")) {
       cout << dq.size() << endl;
     } else if (!strcmp(tok, "empty")) {
       cout << (dq.empty() ? 1 : 0) << endl;
     } else if (!strcmp(tok, "front")) {
-      cout << dq.front() << endl;
+      if (!dq.empty())
+        cout << dq.front() << endl;
+      else
+        cout << -1 << endl;
     } else if (!strcmp(tok, "back")) {
-      cout << dq.back() << endl;
+      if (!dq.empty())
+        cout << dq.back() << endl;
+      else
+        cout << -1 << endl;
     }
   }
 
