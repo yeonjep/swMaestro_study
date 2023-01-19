@@ -16,23 +16,26 @@ int main(){
         return 0;
     }
 
-    int **arr = new int*[r];
-    for(int i=0; i<r; i++)
-        arr[i] = new int[c];
-    fill_n(arr, arr+c*r, 0);
-
-    int index=1, x=0, y=0;
-    while(1){
+    int index=0, direction=1, x=0, y=-1;
+    while(index<searchNum){
         for(int i=0; i<r; i++){
-            arr[x][i] = index;
-            if(index == )
+            y+=direction;
             index++;
+            if(index==searchNum) 
+                cout << x+1 << " " << y+1;
         }
+        for(int i=0; i<c-1; i++){
+            x+=direction;
+            index++;
+            if(index==searchNum) 
+                cout << x+1 << " " << y+1;
+        }
+        direction *= -1;
+        c--;
+        r--;
     }
 
+    
 
-    for(int i=0; i<r; i++)
-        delete arr[i];
-    delete arr;
     return 0;
 }
