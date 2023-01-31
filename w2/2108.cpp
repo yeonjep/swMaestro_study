@@ -63,32 +63,14 @@ int main() {
   range = *(v.end() - 1) - *(v.begin());
 
   // 최빈값
-  // cout << "----\n";
-
-  // for (auto iter : m) {
-  //   if (iter.second > m[maxKey])
-  //     maxKey = iter.first;
-  //   cout << iter.first << ", " << iter.second << endl; 
-  // }
   maxKey = getMaxKey(m);
   if (checkDoubleMode(m, maxKey)) {
     m.erase(maxKey);
-  //   cout << "after delete" << endl;
-  //   for (auto iter : m) {
-  //   if (iter.second > m[maxKey])
-  //     maxKey = iter.first;
-  //   cout << iter.first << ", " << iter.second << endl; 
-  // }
+
     mode = getMaxKey(m);
   } else {
     mode = maxKey;
   }
-  
-  // for (auto iter : m) {
-  //   if (iter.second > m[maxKey])
-  //     maxKey = iter.first;
-  //   cout << iter.first << ", " << iter.second << endl; 
-  // }
 
   cout << floor(arith + 0.5) << endl;
   cout << med << endl;
