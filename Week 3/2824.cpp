@@ -7,6 +7,13 @@ using namespace std;
 vector<int> prime;
 map<int, int> a, b;
 
+/*
+3
+2 3 5
+2
+4 5
+*/
+
 void makeA(int n){
     for(auto o: prime){
         if(n%o == 0){

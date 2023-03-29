@@ -17,6 +17,10 @@ void search(int cur, int sum){
     search(cur+1, sum);
     search(cur+1, sum + arr[cur]);
 }
+/*
+    5 0
+    -7 -3 -2 5 8
+*/
 
 int main(){
     ios_base::sync_with_stdio(false);

@@ -25,7 +25,6 @@ int main(){
     cin >> compCount;
 
     vector<int> network[compCount+1];
-
     
     int edge1=0, edge2=0;
     for(int i=0; i<compCount-1; i++){
